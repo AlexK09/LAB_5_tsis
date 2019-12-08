@@ -127,7 +127,20 @@ void printertabl(std::vector<std::vector<double>> tablitsa) {
 	std::cout << std::endl;
 }
 
+double OS(std::vector<std::vector<double>> massiv) {
+	double os = 0;
+	double Amax = 0;
+	for (int j = 0; j < 4; j++) {
+		for (int i = 0; i < 4; i++) {
+			Amax += massiv[i][j];
 
+		}
+		os += Amax * massiv[j][5];
+		Amax = 0;
+	}
+	os = (os - 4) / 3;
+	return os;
+}
 
 void metod1() {
 
@@ -208,7 +221,7 @@ void metod2() {
 
 	std::vector<double> minmax = minimummaximum(0);
 	std::vector<double> minmax1 = minimummaximum(1);
-	point utopia(minmax[1], minmax1[1]);
+	point utopia(10, 10);
 	std::cout << "             Trip Price   |    Length    " << std::endl;
 	std::cout << "utopia point - "; utopia.printer();
 	std::cout << std::endl<<std::endl;
@@ -407,7 +420,8 @@ void metod4() {
 	}
 
 	std::cout << std::endl;
-
+	std::cout << "Otnoshenie soglasovannosti =" <<OS(Ocenka);
+	std::cout << std::endl << std::endl;
 	//dalnost'
 	std::cout << "Length" << std::endl;
 
@@ -478,9 +492,12 @@ void metod4() {
 	}
 
 	std::cout << std::endl;
+	std::cout << "Otnoshenie soglasovannosti =" << OS(Ocenka);
+	std::cout << std::endl << std::endl;
 
 	//plyaszh
-	std::cout << "Sea shore"<<std::endl;
+	std::cout << "Sea Shore" << std::endl;
+	std::cout<<std::endl;
 
 	{
 		Ocenka[0][0] = 1;
@@ -545,6 +562,10 @@ void metod4() {
 	}
 
 	std::cout << std::endl;
+	std::cout << "Otnoshenie soglasovannosti =" << OS(Ocenka);
+	std::cout << std::endl << std::endl;
+
+	//Attractions
 
 	std::cout << "Attractions" << std::endl;
 
@@ -615,6 +636,10 @@ void metod4() {
 	}
 
 	std::cout << std::endl;
+	std::cout << "Otnoshenie soglasovannosti =" << OS(Ocenka);
+	std::cout << std::endl << std::endl;
+
+	//kriterii
 
 	std::cout << "kriterii" << std::endl;
 
@@ -677,6 +702,10 @@ void metod4() {
 	}
 
 	std::cout << std::endl;
+	std::cout << "Otnoshenie soglasovannosti =" << OS(Ocenka);
+	std::cout << std::endl << std::endl;
+
+
 	std::cout << "matritsa SUMMn"<<std::endl;
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
